@@ -31,13 +31,13 @@ class Elasticsearch < Formula
 
     # Move libraries to `libexec` directory
     libexec.install Dir["lib/*.jar"]
-    (libexec/"sigar").install Dir["lib/sigar/*.{jar,dylib}"]
+    # sigar not included in 2.0.0 (libexec/"sigar").install Dir["lib/sigar/*.{jar,dylib}"]
 
     # Install everything else into package directory
     prefix.install Dir["*"]
 
     # Remove unnecessary files
-    rm_f Dir["#{lib}/sigar/*"]
+    # sigar not included in 2.0.0 so deleting lib no longer necessary rm_f Dir["#{lib}/sigar/*"]
     if build.head?
       rm_rf "#{prefix}/pom.xml"
       rm_rf "#{prefix}/src/"
